@@ -1,2 +1,59 @@
-<a href='/logout'>Log Out</a>
-<h1>Welcome! <%= current_user.email %></h1>
+<div id="search">
+<form  method=post action="/questions">
+
+		<input type="text" placeholder="Ask for Your question" name="question">
+		<input type="submit" value="Ask">
+</form>	
+</div>
+
+<%if logged_in?%>
+	<h1 id="wel">Welcome! <%= current_user.email %></h1>
+	<a style="margin-left: 70%" href='/logout'><button>Log Out</button></a>
+<%else%>
+	<h1 id="wel">Please Login or Signup with Email!</h1>
+	<a style="margin-left: 70%" href='/login/user'><button>Log in</button></a>
+<%end%>
+<br>
+<div id="list_all">
+		<% Question.all.each do |q| %>
+			<div>
+			<a href="/user/<%=q.user_id%>"><%=q.user.full_name%></a><br>
+				<a href="/question/<%=q.id%>"><%=q.question%></a>
+				<div>
+
+				<form method=post action='/questionvotes/<%= q.id %>/upvote' value='Upvote'>
+				 	<button type='submit'>Upvote
+				 	<span><%= q.question_votes.where(votes: 1).count %></span></button> 	
+				</form>
+
+
+				<form method=post action='/questionvotes/<%= q.id %>/downvote' value='Downvote'>
+					<button type='submit'>Downvote
+					<span><%= q.question_votes.where(votes:-1).count %></span></button>
+				</form></div>
+
+
+				<form method=post action="/answer/new/<%=q.id%>">
+					<input type="text" placeholder="Submit Your Answer HERE!" name="answer">
+					<input type="submit" value="Answer">
+				</form>
+				<br>
+				<% q.answers.all.each do |a| %>
+					<a href="/answer/<%=a.id%>"><%= a.answer %></a>
+					<div>
+
+					<form method=post action='/answervotes/<%= a.id %>/upvote' value='Upvote'>
+					 	<button type='submit'>Upvote
+					 	<span><%= a.answer_votes.where(votes: 1).count %></span></button> 	
+					</form>
+
+					<form method=post action='/answervotes/<%= a.id %>/downvote' value='Downvote'>
+						<button type='submit'>Downvote
+						<span><%= a.answer_votes.where(votes:-1).count %></span></button>
+					</form>
+					</div>
+				<% end %>
+			</div>
+			
+		<% end %>
+</div>

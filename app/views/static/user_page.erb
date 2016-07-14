@@ -1,0 +1,9 @@
+<h1><%= @uu %></h1>
+<div>
+<%@questions.each do |q|%>
+	<p><%= q.question %></p>
+	<%q.answers.each do |a|%>
+		<p><%=a.answer%></p>
+		<%end%>
+	<%end%>
+	</div>

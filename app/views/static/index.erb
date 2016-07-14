@@ -1,19 +1,32 @@
+<form method=post action="/home_index">
+	<input type="submit" value="Home">
+</form>
+
+<h1 id="quorahead">Sign up quora for more information</h1>
+
 <% if params[:error] %>
 	<p> You have not logged in!</p>
 <% end %>
-<h1>Sign up for an account!</h1>
-<form method=post action="/signup">
-<input type="text" placeholder="Email" name="user[email]"><br>
-<input type="password" placeholder="Password" name="user[password]"><br>
-<input type="submit" value="Sign up">
-</form>
-<p><%= @msg %></p>
-<p>Sign up our Quora app to get Free candy!!</p>
 
-<h2>Login</h2>
-<form method=post action="/login">
-	<input type="text" placeholder="Email" name="user[email]"><br>
+<div id="signup">
+	<h1>Sign up for an account!</h1>
+		<form method=post action="/signup">
+			<input type="text" placeholder="Full Name" name="user[full_name]">
+			<input type="text" placeholder="Email" name="user[email]"><br>
+			<input type="password" placeholder="Password" name="user[password]">
+			<input type="submit" value="Sign up">
+		</form>
+	<p><%= @msg %></p>
+	<p>Sign up our Quora app to get Free candy!!</p>
+</div>
 
-	<input type="password" placeholder="Password" name="user[password]"><br>
-	<input type="submit" value="Login">
-</form>
+<br>
+
+<div id="login">
+	<h2>Login</h2>
+		<form method=post action="/login">
+			<input type="text" placeholder="Email" name="user[email]"><br>
+			<input type="password" placeholder="Password" name="user[password]"><br>
+			<input type="submit" value="Login">
+		</form>
+</div>

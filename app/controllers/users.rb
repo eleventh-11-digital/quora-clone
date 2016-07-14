@@ -2,6 +2,9 @@ get '/signup' do
 	erb :'users/new'
 end
 
+get '/login/user' do
+	erb :"static/index" 
+end 
 
 post '/signup' do
 	@user = User.new(params[:user])
@@ -30,7 +33,7 @@ post '/login' do
 			log_in(@user)
 			redirect '/home'
 		else
-			@msg = "Pokai! Wrong password lar!"
+			@msg = "Wrong password! Please try again!"
 		end
 	end
 end

@@ -1,0 +1,44 @@
+#search {
+	margin-left: 35%
+}
+
+#list_all {
+	margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px
+}
+
+#wel {
+	text-align: center;
+}
+
+#signup {
+	margin: 10%;
+	text-align: center;
+	border-style:solid;
+    border-width:4px;	
+    border-color:rgb(255,130,255);
+}
+
+#login {
+	margin: 10%;
+	text-align: center;
+	border-style:solid;
+    border-width:4px;	
+    border-color:rgb(255,130,255)
+}
+
+#quorahead {
+	text-align: center;
+	color: ;
+}
+
+body {
+	background: linear-gradient(270deg, #509591, #7bc446, #c0de9e, #b9dca4);
+     background-size: 800% 800%;
+
+     -webkit-animation: AnimationName 30s ease infinite;
+     -moz-animation: AnimationName 30s ease infinite;
+     animation: AnimationName 30s ease infinite;
+}
